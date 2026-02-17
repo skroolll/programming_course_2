@@ -8,7 +8,7 @@ int main() {
     int arr1[SIZE];
 
     for (int i = 0; i < SIZE; i++) {
-        arr1[i] = i * i;  // квадрат индекса
+        arr1[i] = i * i;  
     }
 
     cout << "Результат: ";
@@ -18,4 +18,15 @@ int main() {
     cout << endl;
     
 
+    cout << "\nСтатический массив + указатели" << endl;
+    int arr2[SIZE];
+
+    int* ptr2 = arr2;
+
+    cout << "Результат: ";
+    for (int i = 0; i < SIZE; i++) {
+        *ptr2 = i * i;  
+        cout << *ptr2 << " ";
+        ptr2++; 
+    }
 }
