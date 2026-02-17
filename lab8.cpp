@@ -130,14 +130,37 @@ int main() {
 // 4 ЗАДАНИЕ
 
     struct Node {
-    int data;
     Node* prev;
     Node* next;
-    int* number;
+    int number;
     };
 
     Node* tail = NULL; 
     Node* head = NULL; 
 
+    for (int g = 0; g < 10; g++) {
+        Node* n = new Node; 
+        n -> number = g;
+        n -> next = NULL; 
+
+        if (head == NULL) {
+            n -> prev = NULL;
+            head = n;
+            tail = n;
+        }
+        else {
+            tail -> next = n;
+            n -> prev = tail;
+            tail = n;
+        }
+    }
+        
+    cout << "\nДвусвзяз самоадр список: ";
+        Node* current = head;
+        while (current != NULL) {
+            cout << current->number << " ";
+            current = current->next;
+        }
+        return 0;
     
 }
