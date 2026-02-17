@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>  
+#include <ctime>
 using namespace std;
 
 int main() {
@@ -56,4 +58,31 @@ int main() {
     cout << endl;
 
     
+
+
+// 3.2
+
+    const int SIZE1 = 15;
+    const int SIZE2 = 6;
+    
+    int* arr11 = new int[SIZE1];
+    int* arr22 = new int[SIZE2];
+
+    cout << "Массив A: ";
+    for (int i = 0; i < SIZE1; i++) {
+        arr11[i] = 1+rand() % 100;  
+        cout << arr11[i] << " ";
+    }
+    cout << endl;
+
+     cout << "Массив B: ";
+    for (int i = 0; i < SIZE2; i++) {
+        arr22[i] = 1+rand() % 100;  
+        cout << arr22[i] << " ";
+    }
+    cout << endl;
+
+    cout<< arr22;
+
+
 }
