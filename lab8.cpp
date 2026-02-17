@@ -32,7 +32,23 @@ int main() {
         ptr2++; 
     }
     ptr2 = arr2;
+    cout << endl;
 
 
 
+
+    cout << "\nДинамический массив + индексы" << endl;
+    int* arr3 = new int[SIZE];
+
+    for (int i = 0; i < SIZE; i++) {
+        arr3[i] = i * i;
+    }
+
+    cout << "Результат: ";
+    for (int i = 0; i < SIZE; i++) {
+        cout << arr3[i] << " ";
+    }
+    cout << endl;
+
+    delete[] arr3;
 }
