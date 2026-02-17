@@ -5,6 +5,8 @@
 using namespace std;
 
 int main() {
+// 3 ЗАДАНИЕ
+
     const int SIZE = 10;
 
 // 1 СПОСОБ
@@ -61,7 +63,7 @@ int main() {
     
 
 
-// 3.2
+// 3.2 ЗАДАНИЕ
 
     const int SIZE1 = 15;
     const int SIZE2 = 6;
@@ -122,4 +124,20 @@ int main() {
         cout << arr33[i] << " ";
     }
     cout << endl;
+
+
+
+// 4 ЗАДАНИЕ
+
+    struct Node {
+    int data;
+    Node* prev;
+    Node* next;
+    int* number;
+    };
+
+    Node* tail = NULL; 
+    Node* head = NULL; 
+
+    
 }
