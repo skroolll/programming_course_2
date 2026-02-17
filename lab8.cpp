@@ -64,6 +64,7 @@ int main() {
 
 
 // 3.2 ЗАДАНИЕ
+    srand(time(NULL));
 
     const int SIZE1 = 15;
     const int SIZE2 = 6;
