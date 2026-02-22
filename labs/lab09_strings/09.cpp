@@ -39,7 +39,33 @@ void demstring() {
 
 }
 
+
+void zadanie_na_massiv() {
+    const int max_words = 20;
+    const int max_words_len = 10;
+
+    //вариант С-строк
+    char cWords[max_words][max_words_len + 1];
+    int n;
+
+    cout << "\nвведите кол-во слов от 1 до " << max_words << ": ";
+    cin >> n;
+
+    while (0>=n || n>=21) {
+        cout << "ошибка, введите число от 1 до 20: ";
+        cin >> n;
+    }
+    cin.get();
+
+    cout << "Введите слова: " << endl;
+    for (int i = 0; i < n; i++) {
+        cout << "  Слово " << i + 1 << ": ";
+        cin.getline(cWords[i], max_words_len + 1); 
+    } 
+
+}
 int main() {
     demchar();
     demstring();
+    zadanie_na_massiv();
 }
