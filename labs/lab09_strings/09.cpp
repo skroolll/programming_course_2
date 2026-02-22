@@ -44,11 +44,11 @@ void zadanie_na_massiv() {
     const int max_words = 20;
     const int max_words_len = 10;
 
-    //вариант С-строк
+    //вариант С строк
     char cWords[max_words][max_words_len + 1];
     int n;
 
-    cout << "\nвведите кол-во слов от 1 до " << max_words << ": ";
+    cout << "\n(С)введите кол-во слов от 1 до " << max_words << ": ";
     cin >> n;
 
     while (0>=n || n>=21) {
@@ -63,11 +63,38 @@ void zadanie_na_massiv() {
         cin.getline(cWords[i], max_words_len + 1); 
     } 
 
-    cout << "\ncлова с четными номерами: ";
+    cout << "cлова с четными номерами: ";
     for (int i = 1; i < n; i += 2) {
         cout << cWords[i] << " ";
     }
     cout << endl;
+
+
+    //вариант С++ строк   
+    string sWords[max_words]; 
+    int m = 0;
+    
+    cout << "\n(С++)введите кол-во слов от 1 до " << max_words << ": ";
+    cin >> m;
+
+    while (0>=m || m>=21) {
+        cout << "ошибка, введите число от 1 до 20: ";
+        cin >> m;
+    }
+    cin.get();
+
+    cout << "введите слова:" << endl;
+    for (int i = 0; i < m; i++) {
+        cout << "  Слово " << i + 1 << ": ";
+        getline(cin, sWords[i]);
+    }
+
+    cout << "слова с четными номерами: ";
+    for (int i = 1; i < m; i += 2) {
+        cout << sWords[i] << " ";
+    }
+    cout << endl;
+
 
 }
 int main() {
