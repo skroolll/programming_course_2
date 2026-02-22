@@ -63,6 +63,12 @@ void zadanie_na_massiv() {
         cin.getline(cWords[i], max_words_len + 1); 
     } 
 
+    cout << "\ncлова с четными номерами: ";
+    for (int i = 1; i < n; i += 2) {
+        cout << cWords[i] << " ";
+    }
+    cout << endl;
+
 }
 int main() {
     demchar();
