@@ -10,6 +10,15 @@ void pack(const int source[], int n, int packed[]) {
     for (int i = 0; i < n; i++) packed[source[i]]++;
 }
 
+void unpack(const int packed[], int restored[], int n) {
+    int index = 0;
+    for (int val = 0; val < VALUE_COUNT; val++) {
+        for (int count = 0; count < packed[val]; count++) {
+            restored[index++] = val;
+        }
+    }
+}
+
 int main() {
     
     return 0;
