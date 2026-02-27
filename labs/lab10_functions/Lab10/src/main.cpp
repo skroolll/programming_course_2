@@ -32,6 +32,8 @@ int main() {
         for (int j = 0; j < count; j++) original[pos++] = val;
     }
 
+
+
     cout << "Исходный массив: " << N << " элементов, " 
          << N * sizeof(int) << " байт" << endl;
 
@@ -40,6 +42,18 @@ int main() {
 
     cout << "Упаковано: " << VALUE_COUNT << " элементов, " 
          << VALUE_COUNT * sizeof(int) << " байт" << endl;
+
+
+
+    int* restored = new int[N]; 
+    unpack(packed, restored, N);
+
+    cout << "Распаковано: " << N << " элементов, " 
+         << N * sizeof(int) << " байт" << endl;
+
+
+    delete[] original;
+    delete[] restored; 
 
     return 0;
 }
