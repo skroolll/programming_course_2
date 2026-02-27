@@ -1,13 +1,16 @@
 #include <iostream>
+using namespace std;
 
-// Lab 10
-// TODO: реализуйте решение по заданию в labs/lab10_functions/README.md
-//
-// Рекомендация по выводу:
-// - без лишнего текста
-// - числа через пробел
-// - если несколько строк — в фиксированном порядке
+
+const int MAX_VALUE = 17;
+const int VALUE_COUNT = 18;
+
+void pack(const int source[], int n, int packed[]) {
+    for (int i = 0; i < VALUE_COUNT; i++) packed[i] = 0;
+    for (int i = 0; i < n; i++) packed[source[i]]++;
+}
+
 int main() {
-    // TODO
+    
     return 0;
 }

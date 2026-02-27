@@ -127,7 +127,6 @@ void zadanie_na_massiv() {
 
 }
 int main() {
-    setlocale(LC_ALL, "Russian");
     demchar();
     demstring();
     zadanie_na_massiv();
