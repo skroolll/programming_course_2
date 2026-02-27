@@ -19,7 +19,21 @@ void unpack(const int packed[], int restored[], int n) {
     }
 }
 
+
 int main() {
+    const int N = 1000000;
+    int* original = new int[N];
+
+    int pos = 0;
+    for (int val = 0; val <= MAX_VALUE; val++) {
+        int count = N / VALUE_COUNT;
+
+        if (val < N % VALUE_COUNT) count++;
+        for (int j = 0; j < count; j++) original[pos++] = val;
+    }
+
     
+
+
     return 0;
 }
