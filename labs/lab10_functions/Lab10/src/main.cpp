@@ -32,7 +32,9 @@ int main() {
         for (int j = 0; j < count; j++) original[pos++] = val;
     }
 
-    
+    cout << "Исходный массив: " << N << " элементов, " 
+         << N * sizeof(int) << " байт" << endl;
+
 
 
     return 0;
