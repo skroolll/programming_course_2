@@ -35,7 +35,11 @@ int main() {
     cout << "Исходный массив: " << N << " элементов, " 
          << N * sizeof(int) << " байт" << endl;
 
+    int packed[VALUE_COUNT] = {0};
+    pack(original, N, packed);
 
+    cout << "Упаковано: " << VALUE_COUNT << " элементов, " 
+         << VALUE_COUNT * sizeof(int) << " байт" << endl;
 
     return 0;
 }
