@@ -88,7 +88,7 @@ void findRootWords(WordInfo words[], int wordCount) {
 //самое длинное корн слово
 int findLongestRootWord(WordInfo words[], int wordCount){
     int maxLength = 0;
-    int longestIndex = 0;
+    int longestIndex = -1;
 
     for (int i = 0; i < wordCount; i++) {
         if (words[i].isRoot && words[i].length > maxLength){
@@ -96,10 +96,28 @@ int findLongestRootWord(WordInfo words[], int wordCount){
             longestIndex = i;
         }
     }
-    
+
     return longestIndex;
 
 }
+
+
+//самое важное корн слово
+int findMostImportantWord(WordInfo words[], int wordCount){
+    int maxCount = 0;
+    int importantIndex = -1;
+
+    for (int i = 0; i < wordCount; i++){
+        if (words[i].isRoot && words[i].rootForCount > maxCount){
+            maxCount = words[i].rootForCount;
+            importantIndex = i;
+        }
+    }
+
+    return importantIndex;
+
+}
+
 
 
 
