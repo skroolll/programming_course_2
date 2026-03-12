@@ -83,6 +83,28 @@ void findRootWords(WordInfo words[], int wordCount) {
     }
 }
 
+
+
+//самое длинное корн слово
+int findLongestRootWord(WordInfo words[], int wordCount){
+    int maxLength = 0;
+    int longestIndex = 0;
+
+    for (int i = 0; i < wordCount; i++) {
+        if (words[i].isRoot && words[i].length > maxLength){
+            maxLength = words[i].length;
+            longestIndex = i;
+        }
+    }
+    
+    return longestIndex;
+
+}
+
+
+
+
+
 int main() {
     
 
