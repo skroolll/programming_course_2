@@ -66,6 +66,23 @@ int readWordsFromFile(const char* filer, WordInfo words[]) {
     return wordCount;
 }
 
+
+//поиск корн слов
+void findRootWords(WordInfo words[], int wordCount) {
+
+    for (int i = 0; i < wordCount; i++) {
+        for (int j = 0; j < wordCount; j++) {
+             if (i == j) continue;
+
+             if (words[i].length <= words[j].length && isRootWord(words[i].word, words[j].word)) {
+                words[i].rootFor[words[i].rootForCount] = j;
+                words[i].rootForCount++;
+                words[i].isRoot = true;
+             }
+        }
+    }
+}
+
 int main() {
     
 
