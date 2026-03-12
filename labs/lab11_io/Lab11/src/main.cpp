@@ -138,6 +138,25 @@ void writeLongestRootToFile(const char* filew, WordInfo words[], int wordCount, 
 
 }
 
+//запись самого важного корн слова
+void writeMostImportantToFile(const char* filew, WordInfo words[], int wordCount, int importantIndex){
+
+    FILE* file = fopen(filew, "w");
+    if (file == NULL) return;
+
+    if (importantIndex == -1){
+        fprintf(file, "NO\n");
+    }else{
+        fprintf(file, "%s\n", words[importantIndex].word);
+        for (int i = 0; i < words[importantIndex].rootForCount; i++){
+            int idx = words[importantIndex].rootFor[i];
+            fprintf(file, "%s\n", words[idx].word);
+        }
+    }
+
+    fclose(file);
+
+}
 
 
 int main() {
@@ -154,7 +173,7 @@ int main() {
     int importantIndex = findMostImportantWord(words, wordCount);
 
     writeLongestRootToFile("longest_root.txt", words, wordCount, longestIndex);
-
+    writeMostImportantToFile("most_important.txt", words, wordCount, importantIndex);
 
 
 
