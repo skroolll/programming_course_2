@@ -32,7 +32,7 @@ bool isRootWord(const char* root, const char* word) {
 int readWordsFromFile(const char* filer, WordInfo words[]) {
     FILE* file = fopen(filer, "r");
 
-    if (filer == NULL) {
+    if (file == NULL) {
         cout << "Ошибка открытия файла " << filer << endl;
         return 0;
     }
@@ -119,12 +119,42 @@ int findMostImportantWord(WordInfo words[], int wordCount){
 }
 
 
+//запись самого длинного корн слова
+void writeLongestRootToFile(const char* filew, WordInfo words[], int wordCount, int longestIndex){
+    FILE* file = fopen(filew, "w");
+    if (file == NULL) return;
 
+    if (longestIndex == -1){
+        fprintf(file, "NO\n");
+    }else{
+        fprintf(file, "%s\n", words[longestIndex].word);
+        for (int i = 0; i < words[longestIndex].rootForCount; i++){
+            int idx = words[longestIndex].rootFor[i];
+            fprintf(file, "%s\n", words[idx].word);
+        }
+    }
+
+    fclose(file);
+
+}
 
 
 
 int main() {
-    
+    WordInfo words[MAX_WORDS];
+    int wordCount = readWordsFromFile("words.txt", words);
+
+    if (wordCount == 0) {
+        cout << "Нет слов для обработки" << endl;
+        return 0;  
+    }
+
+    findRootWords(words, wordCount);
+    int longestIndex = findLongestRootWord(words, wordCount);
+    int importantIndex = findMostImportantWord(words, wordCount);
+
+    writeLongestRootToFile("longest_root.txt", words, wordCount, longestIndex);
+
 
 
 
