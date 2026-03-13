@@ -65,6 +65,43 @@ int main() {
         }
     }
 
+    //запись
+    FILE *out1 = fopen("longest.txt", "w");
+    FILE *out2 = fopen("important.txt", "w");
+
+    if (longestIndex == -1) {
+        fprintf(out1, "NO");
+        fprintf(out2, "NO");
+    } else {
+
+        fprintf(out1, "%s\n", words[longestIndex]);
+
+        for (int j = 0; j < n; j++) {
+            int len = strlen(words[longestIndex]);
+
+            if (strncmp(words[j], words[longestIndex], len) == 0 &&
+                strlen(words[j]) > len) {
+
+                fprintf(out1, "%s\n", words[j]);
+            }
+        }
+
+        fprintf(out2, "%s\n", words[importantIndex]);
+
+        for (int j = 0; j < n; j++) {
+
+            int len = strlen(words[importantIndex]);
+
+            if (strncmp(words[j], words[importantIndex], len) == 0 &&
+                strlen(words[j]) > len) {
+
+                fprintf(out2, "%s\n", words[j]);
+            }
+        }
+    }
+
+    fclose(out1);
+    fclose(out2);
 
 
     return 0;
