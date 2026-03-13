@@ -40,6 +40,30 @@ int main() {
         }
     }
 
+    // макс длина и самое важное 
+    int longestIndex = -1;
+    int importantIndex = -1;
+
+    int maxLen = -1;
+    int maxCount = -1; 
+
+    for (int i = 0; i < n; i++){
+        if (count[i] > 0){
+            int len = strlen(words[i]);
+
+            if (len > maxLen) {
+                maxLen = len;
+                longestIndex = i;
+            }
+
+            if (count[i] > maxCount) {
+                maxCount = count[i];
+                importantIndex = i;
+            }
+
+
+        }
+    }
 
 
 
