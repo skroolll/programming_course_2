@@ -15,7 +15,6 @@ int main() {
         return 1;
     }
 
-
     char words[50][26];
     int n = 0;
 
@@ -25,4 +24,24 @@ int main() {
 
     fclose(in);
 
+
+    //поиск корневых
+    int count[50] = {0};
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++){
+
+            if (i == j) continue;
+
+            int len = strlen(words[i]);
+
+            if (strncmp(words[j], words[i], len) == 0 && strlen(words[j]) > len) {
+                count[i]++;
+            }
+        }
+    }
+
+
+
+
     return 0;
+}
