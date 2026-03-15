@@ -40,12 +40,13 @@ int main() {
         }
     }
 
+
     // макс длина и самое важное 
     int longestIndex = -1;
     int importantIndex = -1;
 
-    int maxLen = -1;
-    int maxCount = -1; 
+    int maxLen = 0;
+    int maxCount = 0; 
 
     for (int i = 0; i < n; i++){
         if (count[i] > 0){
@@ -65,6 +66,7 @@ int main() {
         }
     }
 
+
     //запись
     FILE *out1 = fopen("longest.txt", "w");
     FILE *out2 = fopen("important.txt", "w");
@@ -72,8 +74,10 @@ int main() {
     if (longestIndex == -1) {
         fprintf(out1, "NO");
         fprintf(out2, "NO");
-    } else {
 
+    } else {
+        
+        //самое длинное 
         fprintf(out1, "%s\n", words[longestIndex]);
 
         for (int j = 0; j < n; j++) {
@@ -86,20 +90,12 @@ int main() {
             }
         }
 
-        fprintf(out2, "%s\n", words[importantIndex]);
-
-        for (int j = 0; j < n; j++) {
-
-            int len = strlen(words[importantIndex]);
-
-            if (strncmp(words[j], words[importantIndex], len) == 0 &&
-                strlen(words[j]) > len) {
-
-                fprintf(out2, "%s\n", words[j]);
-            }
-        }
+        //свмое важное
+        fprintf(out2, "%s %d", words[importantIndex], count[importantIndex]);
+        
     }
 
+    
     fclose(out1);
     fclose(out2);
 
