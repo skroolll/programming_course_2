@@ -4,7 +4,7 @@ ___
 __Статическая память: R: [0,0,0] P: [0,0,0]__
 __Стэк: [ main ]__
 
-```
+```pascal
 for i:=1 to 3 do R[i]:=0;               
 per(1);                                 
 
@@ -27,7 +27,7 @@ ___
 __Статическая память: R: [1,0,0] P: [1,0,0]__
 __Стэк: [ main -> per(1) i=1 ]__
 
-```
+```pascal
 for i:=1 to 3 do R[i]:=0;               
 per(1);                                 
 
@@ -51,7 +51,7 @@ ___
 __Статическая память: R: [1,1,0] P: [1,2,0]__
 __Стэк: [ main -> per(1) i=1 -> per(2) i=2 ]__
 
-```
+```pascal
 procedure per(k: integer);
   var i:integer;
 begin
@@ -71,7 +71,7 @@ ___
 __Статическая память: R: [1,1,1] P: [1,2,3]__
 __Стэк: [ main -> per(1) i=1 -> per(2) i=2 -> per(3) i=3 ]__
 
-```
+```pascal
 procedure per(k: integer);
   var i:integer;
 begin
@@ -92,7 +92,7 @@ ___
 __Статическая память: R: [1,0,1] P: [1,3,3]__
 __Стэк: [ main -> per(1) i=1 -> per(2) i=3 ]__
 
-```
+```pascal
 procedure per(k: integer);
   var i:integer;
 begin
@@ -113,7 +113,7 @@ ___
 __Статическая память: R: [1,1,1] P: [1,3,2]__
 __Стэк: [ main -> per(1) i=1 -> per(2) i=3 -> per(3) i=2 ]__
 
-```
+```pascal
 procedure per(k: integer);
   var i:integer;
 begin
@@ -156,7 +156,7 @@ ___
 __Статическая память: R: [1,1,0] P: [2,1,0]__
 __Стэк: [ main -> per(1) i=2 -> per(2) i=1 ]__
 
-```
+```pascal
 procedure per(k: integer);
   var i:integer;
 begin
@@ -178,7 +178,7 @@ ___
 __Статическая память: R: [1,1,1] P: [2,1,3]__
 __Стэк: [ main -> per(1) i=2 -> per(2) i=1 -> per(3) i=3 ]__
 
-```
+```pascal
 procedure per(k: integer);
   var i:integer;
 begin
