@@ -19,7 +19,7 @@ void printBoard(const vector <vector<int>> & board, int k) {
 void printBoard(const vector<int> & boardpro, int k) {
     for (int i = 0; i < k; ++i, cout << endl)
         for (int j = 0; j < k; ++j) 
-            if (boardpro[j]==i){
+            if (boardpro[i]==j){
                 cout << "Q ";
             }
             else{
