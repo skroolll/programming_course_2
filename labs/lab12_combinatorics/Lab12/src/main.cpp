@@ -58,6 +58,28 @@ void v_lob(vector <vector<int>> & board, int st, int raz, int& count) {
 
 
 
+//алгоритмом с 1-мерным массивом
+bool proverka_alg(const vector<int> & q, int st, int stl) {
+    for (int i = 0; i < st; ++i){
+        if (q[i] == stl) return false;
+        if (abs(q[i] - stl) == st - i) return false;
+    }
+    return true;
+}
+
+void alg(vector<int> & boardpro, int st, int raz, int& count) {
+    if (st == raz) {
+        count++;
+        if (raz<=5) printBoard(boardpro, raz);
+        return;
+    }
+    for (int stl = 0; stl < raz; ++stl) {
+        if (proverka_alg(boardpro, st, stl)) {
+            boardpro[st] = stl;
+            alg(boardpro, st + 1, raz, count);
+        }
+    }
+}
 
 
 
