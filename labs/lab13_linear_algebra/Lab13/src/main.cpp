@@ -15,6 +15,27 @@ void printMatrix(double** matrix, int rows, int cols, ostream& out) {
     out << endl;
 }
 
+void metod_Gaussa(double** matrix, int M, int N){
+    int lead = 0;
+    for (int r = 0; r < M; r++){
+        if (lead >= N) return;
+        int i = r;
+
+
+        // поиск ведущего(максимального ненулевого) элемента
+        int maxRow = r;
+        double maxVal = abs(matrix[r][lead]);
+        for (int i = r + 1; i < M; i++){
+            if (abs(matrix[i][lead]) > maxVal){
+                maxVal = abs(matrix[i][lead]);
+                maxRow = i;
+            }
+        }
+        swap(matrix[maxRow], matrix[r]); 
+
+        
+    }
+}
 
 
 
