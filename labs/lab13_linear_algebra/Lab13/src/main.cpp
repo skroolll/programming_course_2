@@ -31,6 +31,13 @@ void metod_Gaussa(double** matrix, int M, int N){
                 maxRow = i;
             }
         }
+
+        if (maxVal < 1e-9) {
+            lead++;  // переходим к следующему столбцу
+            r--;     // остаемся на той же строке
+            continue;
+        }
+
         swap(matrix[maxRow], matrix[r]); 
 
 
@@ -81,6 +88,37 @@ int main() {
     metod_Gaussa(matrix, M, N);
     printMatrix(matrix, M, N + 1, outFile);
     
+
+
+    int rank = 0;
+    bool noSolution = false;
+    for (int i = 0; i < M; i++){
+        bool allZerosLeft = true;
+        for (int j = 0; j < N; j++){
+            if (abs(matrix[i][j]) > 1e-9){
+                allZerosLeft = false;
+                break;
+            }
+        }
+
+        if (allZerosLeft && abs(matrix[i][N]) > 1e-9){
+            noSolution = true;
+            break;
+        }
+        if (!allZerosLeft) rank++;
+    }
+
+    if (noSolution) {
+        outFile << "Система не имеет решений." << endl;
+    } else if (rank < N) {
+        outFile << "Система имеет бесконечно много решений (общее решение)." << endl;
+        outFile << "Ранг: " << rank << ", свободных переменных: " << N - rank << endl;
+    } else {
+        outFile << "Единственное решение:" << endl;
+        for (int i = 0; i < N; i++) {
+            outFile << "x" << i + 1 << " = " << matrix[i][N] << endl;
+        }
+    }
 
 
 
