@@ -33,12 +33,26 @@ void metod_Gaussa(double** matrix, int M, int N){
         }
         swap(matrix[maxRow], matrix[r]); 
 
+
         //нормализация строки
         double div = matrix[r][lead];
         for (int j = 0; j <= N; j++) {
             matrix[r][j] /= div;
         }
 
+
+        //обнуление столбца
+        for (int k = 0; k < M; k++) {
+            if (k != r){
+                double factor = matrix[k][lead];
+                for (int j = 0; j <= N; j++){
+                    matrix[k][j] -= factor * matrix[r][j];
+                }
+            }
+        }
+
+
+        
 
     }
 }
