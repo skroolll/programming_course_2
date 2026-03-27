@@ -33,7 +33,13 @@ void metod_Gaussa(double** matrix, int M, int N){
         }
         swap(matrix[maxRow], matrix[r]); 
 
-        
+        //нормализация строки
+        double div = matrix[r][lead];
+        for (int j = 0; j <= N; j++) {
+            matrix[r][j] /= div;
+        }
+
+
     }
 }
 
