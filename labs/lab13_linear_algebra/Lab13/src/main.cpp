@@ -66,5 +66,32 @@ int main() {
     inFile >> M >> N;
 
 
+    double** matrix = new double*[M];
+    for (int i = 0; i < M; i++){
+        matrix[i] = new double[N + 1];
+        for (int j = 0; j <= N; j++){
+            inFile >> matrix[i][j];
+        }
+    }
+
+    outFile << "Исходная система" << endl;
+    printMatrix(matrix, M, N + 1, outFile);
+
+    outFile << "Матрица после преобразований" << endl;
+    metod_Gaussa(matrix, M, N);
+    printMatrix(matrix, M, N + 1, outFile);
+    
+
+
+
+    for (int i = 0; i < M; i++) {
+        delete[] matrix[i];
+    }
+    delete[] matrix;
+
+    inFile.close();
+    outFile.close();
+    cout << "Проверьте файл output.txt" << endl;
+
     return 0;
 }
