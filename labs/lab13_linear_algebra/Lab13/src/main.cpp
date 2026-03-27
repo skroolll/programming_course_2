@@ -118,6 +118,27 @@ int main() {
     } else if (rank < N) {
         outFile << "Система имеет бесконечно много решений (общее решение)." << endl;
         outFile << "Ранг: " << rank << ", свободных переменных: " << N - rank << endl;
+
+        // общее решение для систем с бесконечным множеством решений
+        for (int i = 0; i < rank; i++) {
+            int firstIdx = -1;
+            for (int j = 0; j < N; j++) {
+                if (abs(matrix[i][j]) > 1e-9) {
+                    firstIdx = j;
+                    break;
+                }
+            }
+            outFile << "x" << firstIdx + 1 << " = " << matrix[i][N];
+            for (int j = firstIdx + 1; j < N; j++) {
+                if (abs(matrix[i][j]) > 1e-9) {
+                    double val = -matrix[i][j];
+                    if (val >= 0) outFile << " + " << val << "*x" << j + 1;
+                    else outFile << " - " << abs(val) << "*x" << j + 1;
+                }
+            }
+            outFile << endl;
+        }
+        
     } else {
         outFile << "Единственное решение:" << endl;
         for (int i = 0; i < N; i++) {
