@@ -50,9 +50,7 @@ void metod_Gaussa(double** matrix, int M, int N){
                 }
             }
         }
-
-
-        
+        lead++;
 
     }
 }
