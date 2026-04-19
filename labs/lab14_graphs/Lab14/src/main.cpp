@@ -40,6 +40,7 @@ int main() {
 
 
 
+
     // второй номер
 
     ifstream in2("output1.txt");
@@ -71,6 +72,48 @@ int main() {
     out2 << endl;
     for (int x : head) out2 << x << " ";
     out2.close();
+
+
+
+
+    //третий номер
+    
+    ifstream in3("output2.txt");
+    int numNodes;
+    in3 >> numNodes;
+
+    vector<int> adj3, head3;
+    int temp;
+    vector<int> allData;
+    while (in3 >> temp) allData.push_back(temp);
+    in3.close();
+
+   
+    int headSize = numNodes + 1;
+    for (int i = 0; i < (int)allData.size() - headSize; i++) {
+        adj3.push_back(allData[i]);
+    }
+
+    for (int i = allData.size() - headSize; i < (int)allData.size(); i++) {
+        head3.push_back(allData[i]);
+    }
+    
+    ofstream out3("output3.txt");
+    for (int i = 0; i < numNodes; i++) {
+        int start = head3[i] - 1;
+        int end = head3[i + 1] - 1;
+
+        for (int k = start; k < end; k++) {
+            int neighbor = adj3[k];
+
+            if ((i + 1) < neighbor) {
+                out3 << i + 1 << " " << neighbor << endl;
+            }
+        }
+    }
+    out3.close();
+
+    cout << "Проверьте файлы output1.txt, output2.txt, output3.txt" << endl;
 
     return 0;
 }
