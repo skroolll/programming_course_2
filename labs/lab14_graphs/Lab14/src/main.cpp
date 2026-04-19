@@ -7,6 +7,8 @@ using namespace std;
 
 int main() {
 
+    // первый номер
+    
     ifstream in1("input.txt");
     int u, v, max = 0;
     vector<pair<int, int>> edgeList;
@@ -35,6 +37,40 @@ int main() {
         out1 << endl;
     }
     out1.close();
+
+
+
+    // второй номер
+
+    ifstream in2("output1.txt");
+    int n;
+    in2 >> n;
+    vector<vector<int>> m2(n, vector<int>(n));
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            in2 >> m2[i][j];
+    in2.close();
+
+    vector<int> sosed; 
+    vector<int> head;
+    
+    for (int i = 0; i < n; i++) {
+        head.push_back(sosed.size() + 1); 
+        for (int j = 0; j < n; j++) {
+            if (m2[i][j] == 1) {
+                sosed.push_back(j + 1);
+            }
+        }
+    }
+    head.push_back(sosed.size() + 1); 
+
+    // запись в output2.txt
+    ofstream out2("output2.txt");
+    out2 << n << endl; 
+    for (int x : sosed) out2 << x << " ";
+    out2 << endl;
+    for (int x : head) out2 << x << " ";
+    out2.close();
 
     return 0;
 }
